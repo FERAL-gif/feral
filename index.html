@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FERAL — Josefina Cerda</title>
+<meta name="description" content="FERAL, a vocal-sound sex performance by Josefina Cerda. Edinburgh Festival Fringe, 10–23 August 2026.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --black:#0c0806;
+  --red:#7a0f16;
+  --red-bright:#c41e3a;
+  --cream:#f1e9de;
+  --cream-dim:#c9beae;
+  --green:#8fbf9f;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:'Fraunces', serif;
+  line-height:1.5;
+}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+.eyebrow{
+  font-family:'JetBrains Mono', monospace;
+  font-size:13px; letter-spacing:0.24em; text-transform:uppercase;
+  color:var(--red-bright); margin-bottom:10px; display:block;
+}
+h1,h2{font-family:'Archivo Black', sans-serif; text-transform:uppercase; letter-spacing:-0.01em;}
+section{padding:70px 0; border-bottom:1px solid rgba(241,233,222,0.1);}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative; min-height:100vh; display:flex; align-items:flex-end;
+  background:#1a0f0c; overflow:hidden; border-bottom:none;
+}
+.hero img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(0deg, rgba(12,8,6,0.96) 0%, rgba(12,8,6,0.25) 55%, rgba(12,8,6,0.55) 100%);
+}
+.hero-inner{position:relative; z-index:2; padding:60px 24px 56px; width:100%;}
+.hero h1{font-size:clamp(3.2rem,13vw,7.5rem); line-height:0.86; color:var(--cream); margin-bottom:6px;}
+.hero h1 span{color:var(--red-bright);}
+.hero .sub{font-size:clamp(1.1rem,3vw,1.4rem); font-style:italic; font-weight:300; color:var(--cream-dim); margin-bottom:26px;}
+.dates{
+  font-family:'JetBrains Mono', monospace; font-size:15px; letter-spacing:0.05em;
+  color:var(--cream); margin-bottom:22px; line-height:1.7;
+}
+.dates b{color:var(--red-bright);}
+.cta-row{display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+.btn{
+  display:inline-block; font-family:'Archivo Black', sans-serif; font-size:15px;
+  letter-spacing:0.03em; text-transform:uppercase; text-decoration:none;
+  padding:16px 30px; border-radius:2px; transition:opacity 0.2s;
+}
+.btn:hover{opacity:0.85;}
+.btn-primary{background:var(--red-bright); color:var(--cream);}
+.btn-ghost{
+  border:1px solid rgba(241,233,222,0.4); color:var(--cream);
+  font-family:'JetBrains Mono', monospace; text-transform:none; letter-spacing:0.03em;
+  font-size:13px; padding:14px 22px;
+}
+
+/* ---------- VISION ---------- */
+.vision-grid{display:grid; grid-template-columns:1fr 1.1fr; gap:50px; align-items:center;}
+.definition{
+  font-size:1.3rem; line-height:1.45; font-style:italic; font-weight:300;
+  border-left:2px solid var(--red-bright); padding-left:20px;
+}
+.definition i{color:var(--red-bright); font-style:italic;}
+.statement p{font-size:1.02rem; font-weight:300; margin-bottom:14px; color:var(--cream-dim);}
+.tagline{
+  font-family:'Archivo Black', sans-serif; font-size:1rem; text-transform:uppercase;
+  margin-top:6px; color:var(--cream);
+}
+.tagline::before{content:""; display:inline-block; width:8px; height:8px; background:var(--red-bright); margin-right:10px;}
+.vision-photo img{border-radius:2px;}
+
+/* ---------- INFO ---------- */
+.info-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+.info-grid h3{
+  font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--red-bright); margin-bottom:12px; border-bottom:1px solid rgba(241,233,222,0.2); padding-bottom:10px;
+}
+.info-grid p{font-size:1rem; font-weight:300; color:var(--cream-dim); margin-bottom:12px;}
+.cross-ref{font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--cream-dim);}
+
+/* ---------- TOUR ---------- */
+.tour-cols{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+.tour-col-label{
+  font-family:'JetBrains Mono', monospace; font-size:14px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--red-bright); border-bottom:2px solid rgba(196,30,58,0.5); padding-bottom:8px; margin-bottom:4px;
+}
+.tour-row{display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px solid rgba(241,233,222,0.14);}
+.tour-row .city{font-family:'Archivo Black', sans-serif; font-size:1rem; text-transform:uppercase;}
+.tour-row .place{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--cream-dim); margin-top:3px;}
+.tour-row .when{font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--green); white-space:nowrap; margin-left:10px;}
+.tour-row.confirmed .when{color:var(--red-bright);}
+.tour-row.highlight .city{color:var(--red-bright);}
+
+/* ---------- PRESS ---------- */
+.quote{display:grid; grid-template-columns:170px 1fr; gap:26px; padding:22px 0; border-top:1px solid rgba(241,233,222,0.14);}
+.quote:last-child{border-bottom:1px solid rgba(241,233,222,0.14);}
+.q-src{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--cream-dim); line-height:1.6;}
+.q-src .name{display:block; font-family:'Archivo Black', sans-serif; font-size:13px; color:var(--cream); text-transform:uppercase; margin-bottom:4px;}
+.q-src a{color:var(--red-bright); text-decoration:none; border-bottom:1px solid rgba(196,30,58,0.5);}
+.q-txt{font-size:1.15rem; line-height:1.4;}
+.q-txt em{font-style:italic; color:var(--red-bright);}
+.q-orig{display:block; margin-top:8px; font-size:12px; font-style:italic; color:var(--cream-dim);}
+.also{margin-top:10px; font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--cream-dim);}
+.also a{color:var(--red-bright); text-decoration:none; border-bottom:1px solid rgba(196,30,58,0.5);}
+
+/* ---------- POLITICAL ---------- */
+.political-row{display:flex; gap:40px; align-items:center; flex-wrap:wrap; margin-top:24px;}
+.political-row img{width:320px; border-radius:6px; box-shadow:0 12px 40px rgba(0,0,0,0.5);}
+.pull{font-size:1.2rem; font-style:italic; line-height:1.45; border-left:2px solid var(--red-bright); padding-left:20px; flex:1; min-width:280px;}
+.pull em{color:var(--red-bright); font-style:italic;}
+.soldout{color:var(--green); font-weight:500;}
+
+/* ---------- GALLERY ---------- */
+.gallery-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:4px;}
+.gallery-grid img{width:100%; height:260px; object-fit:cover;}
+@media (max-width:720px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} .gallery-grid img{height:200px;} }
+
+/* ---------- MEDIA ---------- */
+.media-links a{
+  display:block; font-family:'Archivo Black', sans-serif; font-size:1.4rem; text-transform:uppercase;
+  text-decoration:none; border-bottom:2px solid var(--cream); width:fit-content; padding-bottom:3px; margin-bottom:16px;
+}
+.credits{margin-top:30px; font-family:'JetBrains Mono', monospace; font-size:12px; line-height:1.6; color:var(--cream-dim); max-width:500px;}
+
+/* ---------- BIO ---------- */
+.bio-grid{display:grid; grid-template-columns:1.2fr 0.9fr; gap:50px; align-items:center;}
+.bio-grid p{font-size:1rem; font-weight:300; color:var(--cream-dim); margin-bottom:12px;}
+.contact-label{color:var(--red-bright); letter-spacing:0.08em; text-transform:uppercase; font-size:11px; margin:16px 0 5px; font-family:'JetBrains Mono', monospace;}
+.contact-label:first-child{margin-top:0;}
+.contact a{color:var(--cream); text-decoration:none; border-bottom:1px solid rgba(241,233,222,0.3); font-family:'JetBrains Mono', monospace; font-size:14px;}
+.bio-grid img{border-radius:2px;}
+
+footer{padding:36px 0; text-align:center; font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--cream-dim);}
+footer .mark{color:var(--red-bright);}
+
+@media (max-width:820px){
+  .vision-grid, .info-grid, .tour-cols, .bio-grid{grid-template-columns:1fr;}
+  .quote{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="images/cover.jpg" alt="FERAL performance">
+  <div class="hero-inner wrap">
+    <h1>FER<span>AL</span></h1>
+    <div class="sub">Vocal-Sound Sex Performance — Josefina Cerda</div>
+    <div class="dates">
+      <b>10 – 23 August 2026</b> · Edinburgh Festival Fringe<br>
+      <a href="https://www.edfringe.com/tickets/venues/c-arts-c-venues-c-aurora" target="_blank" rel="noopener" style="color:var(--cream); border-bottom:1px solid rgba(241,233,222,0.4); text-decoration:none;">Lauriston Halls</a>,
+      <a href="https://www.google.com/maps/search/?api=1&query=Lauriston+Halls%2C+28+Lauriston+Street%2C+Edinburgh%2C+EH3+9DJ" target="_blank" rel="noopener" style="color:var(--cream-dim); border-bottom:1px solid rgba(241,233,222,0.25); text-decoration:none;">28 Lauriston Street, EH3 9DJ ↗</a>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://www.edfringe.com/tickets/whats-on/feral" target="_blank" rel="noopener">Claim Your Seat</a>
+      <a class="btn btn-ghost" href="#reviewers">Press &amp; Industry Tickets ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="wrap vision-grid">
+    <div>
+      <span class="eyebrow">Vision</span>
+      <div class="definition">From the Latin <i>feralis</i>: referring to a plant or animal that returns to a wild state after having been domesticated — or, alternatively, one that never was.</div>
+      <div class="statement" style="margin-top:20px;">
+        <p>From the visceral nature of my poetry, "FERAL" emerges as a radical act: I want to create art pieces from my body. Transform myself into an object for your collection of beautiful fetishes. In the terrifying honesty of my unrestrained sexual desire, I choose to die in fragments of art, compost myself, and be reborn in the pleasure of others.</p>
+        <div class="tagline">FERAL is a defense of the object over the human.</div>
+      </div>
+    </div>
+    <div class="vision-photo"><img src="images/vision.jpg" alt="Josefina Cerda performing FERAL"></div>
+  </div>
+</section>
+
+<!-- INFO -->
+<section id="info">
+  <div class="wrap">
+    <span class="eyebrow">Info</span>
+    <h2 style="font-size:2rem; margin-bottom:30px;">About the Piece</h2>
+    <div class="info-grid">
+      <div>
+        <h3>Review</h3>
+        <p>FERAL is a vocal-sound performance that delves into the processes of sexualization, objectification, and the empowerment of personal pleasure. Over the course of 30 minutes, the performer weaves a narrative of her journey — from a hypersexualized childhood to an adulthood where pleasure finds new avenues of exploration through domination, sex work, and BDSM.</p>
+        <p>The performance unfolds in an intimate setting, featuring a live sound recording and playback setup alongside other sex technologies that accompany the storytelling.</p>
+      </div>
+      <div>
+        <h3>Performance History</h3>
+        <p>The piece premiered in Santiago, Chile, in January 2025 as part of VENTANA AL SUR, a live arts festival presented by Fundación Cuerpo Sur.</p>
+        <p>Since then it has toured internationally, including Belluard Bollwerk (Switzerland), Santarcangelo Festival (Italy), Plataforma (Berlin), Zürcher Theater Spektakel (Switzerland), and Boska Komedia / Divine Comedy Festival (Poland).</p>
+        <div class="cross-ref">→ Full calendar below</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section id="tour">
+  <div class="wrap">
+    <span class="eyebrow">Tour</span>
+    <h2 style="font-size:2rem; margin-bottom:30px;">Calendar</h2>
+    <div class="tour-cols">
+      <div>
+        <div class="tour-col-label">2025</div>
+        <div class="tour-row"><div><div class="city">Ventana al Sur</div><div class="place">Santiago, Chile</div></div><div class="when">January</div></div>
+        <div class="tour-row"><div><div class="city">Belluard Bollwerk</div><div class="place">Fribourg, Switzerland</div></div><div class="when">June</div></div>
+        <div class="tour-row"><div><div class="city">Santarcangelo Festival</div><div class="place">Italy</div></div><div class="when">July</div></div>
+        <div class="tour-row"><div><div class="city">Zürcher Theater Spektakel</div><div class="place">Zurich, Switzerland</div></div><div class="when">August</div></div>
+        <div class="tour-row"><div><div class="city">Plataforma</div><div class="place">Berlin, Germany</div></div><div class="when">September</div></div>
+        <div class="tour-row"><div><div class="city">Boska Komedia / Divine Comedy</div><div class="place">Kraków, Poland</div></div><div class="when">December</div></div>
+      </div>
+      <div>
+        <div class="tour-col-label">2026 — Confirmed</div>
+        <div class="tour-row confirmed"><div><div class="city">Ventana al Sur</div><div class="place">Santiago, Chile</div></div><div class="when">January</div></div>
+        <div class="tour-row confirmed highlight"><div><div class="city">Edinburgh Festival Fringe</div><div class="place">Lauriston Halls, Edinburgh</div></div><div class="when">10–23 Aug</div></div>
+        <div class="tour-row confirmed"><div><div class="city">Fierce Festival</div><div class="place">Birmingham, UK</div></div><div class="when">October</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section id="press">
+  <div class="wrap">
+    <span class="eyebrow">Selected Press</span>
+    <h2 style="font-size:2rem; margin-bottom:30px;">What the Critics Say</h2>
+
+    <div class="quote">
+      <div class="q-src"><span class="name">Marion Bellal</span>French journalist<br>@Culturologue_au_Chili<br>Ventana al Sur, Santiago</div>
+      <div class="q-txt">"Josefina Cerda's performance at Feral is unlike any other. Immerse yourself in her <em>indecent, irreverent, unsettling</em>, intelligent and always corrosively humorous world." A truly versatile Chilean artist — someone to follow very closely.</div>
+    </div>
+
+    <div class="quote">
+      <div class="q-src"><span class="name">Andrea Pocosgnich</span>Teatro e Critica<br>Santarcangelo Festival, Italy<br><a href="https://www.teatroecritica.net/2025/07/cordelia-luglio-agosto-2025/" target="_blank" rel="noopener">Read full review ↗</a></div>
+      <div class="q-txt">Beyond the sacred game the piece sets up, what remains is <em>this woman's cry of freedom</em>, her epic, feral pursuit of pleasure. Is this, too, a form of politics?
+        <span class="q-orig">"Al di là del sacrosanto gioco ciò che rimane è il grido di libertà di questa donna, la sua epica e selvaggia ricerca del piacere."</span>
+      </div>
+    </div>
+
+    <div class="quote">
+      <div class="q-src"><span class="name">De Rosa &amp; Del Core</span>"Pensare stretti"<br>Santarcangelo Festival / TourFest<br><a href="https://trovafestival.it/news/news_item.php?idx=1113" target="_blank" rel="noopener">Read full review ↗</a></div>
+      <div class="q-txt">FERAL is <em>a wild ivy that clings tenaciously to every surface</em>: an untameable piece that divides and unites at once, openly claiming Donna Haraway's cyborg body.</div>
+    </div>
+    <div class="also">Also featured on <a href="https://rkk.pl/aktualnosci/spektakle-ktore-definiuja-tegoroczna-boska-intymnosc-katastrofa-i-tozsamosc" target="_blank" rel="noopener">Radio Kraków Kultura ↗</a></div>
+  </div>
+</section>
+
+<!-- POLITICAL REACTIONS -->
+<section id="political">
+  <div class="wrap">
+    <span class="eyebrow">Political Reactions</span>
+    <h2 style="font-size:2rem; margin-bottom:20px;">When the Work Becomes a Target</h2>
+    <p style="font-size:1rem; font-weight:300; color:var(--cream-dim); max-width:800px; margin-bottom:8px;">In December 2025, FERAL was presented in the PURGATORIO section of the 18th Boska Komedia (Divine Comedy) International Theatre Festival in Kraków, Poland — the edition's overarching theme was "Waiting for the Barbarians." <span class="soldout">Both performances sold out.</span></p>
+    <p style="font-size:1rem; font-weight:300; color:var(--cream-dim); max-width:800px;">Days later, Konrad Berkowicz — Member of the Polish Sejm for Kraków, first vice-chairman of the far-right Nowa Nadzieja (New Hope) party and a leading figure within the Confederation coalition — publicly attacked the city and the Ministry of Culture for funding a "festival" whose protagonist he described, in scare quotes, as a "sex worker" whose "art" is based on "the experience of a dominatrix, fetishes, sex toys, and BDSM."</p>
+
+    <div class="political-row">
+      <img src="images/tweet.jpg" alt="Konrad Berkowicz post on X attacking FERAL">
+      <div class="pull">"FERAL <em>rattles conservatism</em>, hitting right where its double standards live. What looked like a cancellation post is, simply, the perfect review of what this piece is."</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <span class="eyebrow">Live</span>
+    <h2 style="font-size:2rem; margin-bottom:24px;">In Performance</h2>
+  </div>
+  <div class="gallery-grid">
+    <img src="images/g_macro.jpg" loading="lazy" alt="">
+    <img src="images/g_bluehair.jpg" loading="lazy" alt="">
+    <img src="images/g_scream.jpg" loading="lazy" alt="">
+    <img src="images/g_standing.jpg" loading="lazy" alt="">
+    <img src="images/g_wide.jpg" loading="lazy" alt="">
+    <img src="images/g_purple.jpg" loading="lazy" alt="">
+    <img src="images/g_walk.jpg" loading="lazy" alt="">
+    <img src="images/g_neon.jpg" loading="lazy" alt="">
+    <img src="images/g_harness.jpg" loading="lazy" alt="">
+  </div>
+</section>
+
+<!-- REVIEWERS & PROGRAMMERS -->
+<section id="reviewers">
+  <div class="wrap">
+    <span class="eyebrow">Press &amp; Industry</span>
+    <h2 style="font-size:2rem; margin-bottom:30px;">Ticket Requests</h2>
+
+    <div style="display:flex; gap:60px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:280px;">
+        <h3 style="font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red-bright); margin-bottom:12px; border-bottom:1px solid rgba(241,233,222,0.2); padding-bottom:10px;">Reviewers</h3>
+        <p style="font-size:1rem; font-weight:300; color:var(--cream-dim); margin-bottom:20px;">Working press covering the Fringe can request a comp ticket for FERAL. Tell us your outlet and preferred date and we'll confirm by email.</p>
+        <a class="btn btn-primary" href="https://forms.gle/NWNYrrZbjnCQDWsC7" target="_blank" rel="noopener">Request Press Ticket ↗</a>
+      </div>
+      <div style="flex:1; min-width:280px;">
+        <h3 style="font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--red-bright); margin-bottom:12px; border-bottom:1px solid rgba(241,233,222,0.2); padding-bottom:10px;">Programmers &amp; Presenters</h3>
+        <p style="font-size:1rem; font-weight:300; color:var(--cream-dim); margin-bottom:20px;">Programming for your own venue or festival? Request a ticket to see FERAL live and we'll confirm by email.</p>
+        <a class="btn btn-primary" href="https://forms.gle/Hv5ikBjDEUncyvLs5" target="_blank" rel="noopener">Request Industry Ticket ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media">
+  <div class="wrap">
+    <span class="eyebrow">Media</span>
+    <h2 style="font-size:2rem; margin-bottom:24px;">Press Kit</h2>
+    <div class="media-links">
+      <a href="https://drive.google.com/drive/folders/1TSMKLk7cU6rr8UyAdWWqBpuMWKXMatrZ" target="_blank" rel="noopener">Trailer</a>
+      <a href="https://drive.google.com/drive/folders/1YxZgzCFA7AiMAjQ_Go8p5T31ho0AdpZF" target="_blank" rel="noopener">Photographs</a>
+      <a href="https://drive.google.com/drive/folders/17hd5FATedlbyICb0RRj7aWbSdJNUakb5" target="_blank" rel="noopener">Press</a>
+    </div>
+    <div class="credits">
+      <b style="color:var(--cream);">CREDITS</b><br>
+      Creation &amp; performance: Josefina Cerda · Prosthetics: O'Ryan Lab · Mask: Pedro Gramegna, John Alvarez · Administration, production &amp; distribution: Ébana Garín, Roni Isola — Fundación Cuerpo Sur.
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section id="bio" style="border-bottom:none;">
+  <div class="wrap bio-grid">
+    <div>
+      <span class="eyebrow">Bio</span>
+      <h2 style="font-size:2.2rem; margin-bottom:16px;">Josefina Cerda</h2>
+      <p>Josefina Cerda is a Chilean performance artist, sound designer, and sex worker-dominatrix. Her work explores the relationship between body, sexuality, sound, and fantasy, addressing pleasure, love, and power dynamics through a critical and sensorial approach.</p>
+      <p>Her practice includes NSFW content and the exploration of domination and BDSM in intimate, professional, and performative contexts. She is currently a producer and associate artist at Fundación Cuerpo Sur, and co-directs the porn magazine <b>Vieja Verde</b>.</p>
+      <p>She has directed Radioafectiva (2023), FERAL (2025), and currently <b>Te Amo, Puta</b> (2026). Her sound design was recognized in 2023 with second place at World Stage Design, Canada.</p>
+      <div class="contact">
+        <div class="contact-label">Contact</div>
+        <a href="mailto:josefinacerdapuga@gmail.com?cc=ebana.garin@gmail.com,roni.isola@gmail.com">josefinacerdapuga@gmail.com</a>
+        <div class="contact-label">Social</div>
+        <a href="https://www.instagram.com/josafana/" target="_blank" rel="noopener">@josafana</a><br>
+        <a href="https://www.instagram.com/josofono_/" target="_blank" rel="noopener">@josofono_</a>
+      </div>
+    </div>
+    <div><img src="images/bio.jpg" alt="Josefina Cerda portrait"></div>
+  </div>
+</section>
+
+<footer>
+  <span class="mark">FERAL</span> — Josefina Cerda · Fundación Cuerpo Sur · 2026<br>
+  <a href="https://linktr.ee/Josafana" target="_blank" rel="noopener" style="color:var(--cream-dim); border-bottom:1px solid rgba(241,233,222,0.25); text-decoration:none; display:inline-block; margin-top:8px;">Más sobre Josefina ↗</a>
+</footer>
+
+</body>
+</html>
